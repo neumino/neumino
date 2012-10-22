@@ -1,0 +1,36 @@
+<div class="section post">
+    <div class="header">
+        <h1 class="title">{{title}}</h1>
+        <div class="date">{{date}}</div> 
+    </div>
+
+    {{print_safe content}}
+
+    <div class="metadata">
+        Posted in <em>
+            {{generate_comma_links_list categories}}
+        </em><br/>
+        Tagged <em>
+            {{generate_comma_links_list tags}}
+        </em>
+    </div>
+</div>
+<div class="section comments">
+    <div class="comments_container">
+        <h4>Comments</h4>
+        <p class="no_comment">No comment found</p>
+        <div class="comments_content"></div>
+    </div>
+    <h4>Submit a comment</h4>
+    <div class="alert">
+        <div class="close"><a href="#" class="close_alert-link">x</a></div>
+        <div class="alert_content"></div>
+    </div>
+    <div class="caption">Name</div>
+    <input type="text" id="comment_name" class="input_text" placeholder="Name" />
+    <div class="caption">Email</div>
+    <input type="text" id="comment_email" class="input_text" placeholder="name@email.com" />
+    <div class="caption">Comment</div>
+    <textarea id="comment_content" class="comment_textarea"></textarea>
+    <button class="comment_button">Submit</button>
+</div>

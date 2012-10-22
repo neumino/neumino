@@ -1,0 +1,14 @@
+<div class="single_comment">
+    {{#unless is_first}}
+    <div class="hr"></div>
+    {{/unless}}
+    <div class="poster">
+    {{#if url}}
+    <a href="{{url}}">{{name}}</a>
+    {{else}}
+    <strong>{{name}}</strong>
+    {{/if}}
+    <span class="date">{{date}}</span>
+    </div>
+    {{print_safe content}}
+</div>

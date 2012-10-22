@@ -1,0 +1,15 @@
+<div class="header">
+    <h1 class="title"><a href="#blog/get_post/{{id}}">{{title}}</a></h1>
+    <div class="date">{{date}}</div> 
+</div>
+
+{{print_safe content}}
+
+<div class="metadata">
+    Posted in <em>
+        {{generate_comma_links_list categories}}
+    </em><br/>
+    Tagged <em>
+        {{generate_comma_links_list tags}}
+    </em>
+</div>

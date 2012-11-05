@@ -178,11 +178,17 @@ class BlogFullPostView extends Backbone.View
 
     events:
         'click .comment_button': 'submit_comment'
+        'click .close_alert-link': 'close_alert'
+
 
     initialize: (options) =>
         @data =
             id: options.id
         @fetch_post()
+
+    close_alert: (event) ->
+        event.preventDefault()
+        $(event.target).parent().parent().slideUp 'fast'
 
     generate_url: (id)  =>
         url = '/blog/?json=get_post&id='+id
@@ -202,19 +208,19 @@ class BlogFullPostView extends Backbone.View
         content = @.$('#comment_content').val()
         errors = []
         if name is ''
-            error.push 'We do not requier a real name, but a name is still required.'
+            errors.push 'We do not requier a real name, but a name is still required.'
         if email is ''
-            error.push 'Wordpress requires your email evem if it will not be displayed.'
+            errors.push 'Wordpress requires your email evem if it will not be displayed.'
         if content is ''
             errors.push 'We have detected an empty comment. Did you hit submit by accident?'
-        console.log errors
         if errors.length > 0
             errors_string = ''
             for error, i in errors
                 if i isnt 0
-                    error_string += '<br/>'
+                    errors_string += '<br/>'
                 errors_string += error
-            @.$('.alert_content').html error_string
+            @.$('.alert_content').html errors_string
+            @.$('.alert').slideDown 'fast'
         else
             data =
                 post_id: parseInt @id

@@ -21,10 +21,15 @@ class Router extends Backbone.Router
 
     # Method in case of an empty route. We just load recent posts
     index: =>
+        if _gaq?
+            _gaq.push ['_trackPageview', '/index']
+
         @blog_recent()
 
     # Method to load the "about me" page
     about: =>
+        if _gaq?
+            _gaq.push ['_trackPageview', '/about']
         @view = new AboutView
         @show_loading @delay_about
 
@@ -41,7 +46,15 @@ class Router extends Backbone.Router
     # @params:
     #     - count: the number of posts to display
     #     - page: the page to display
+
+
     blog_recent: (count, page) =>
+        url = '/recent'
+        if count? and page?
+            url += '/'+page+'/'+count
+         if _gaq?
+            _gaq.push ['_trackPageview', url]
+
         data =
             method: 'get_recent_posts'
             count: if count? then count else 10
@@ -60,6 +73,15 @@ class Router extends Backbone.Router
     #     - count: the number of posts to display
     #     - page: the page to display
     blog_tag: (id, count, page) =>
+        url = '/tag'
+        if id?
+            url += '/'+id
+        else
+            url += '/undefined'
+        if count? and page?
+            url += '/'+page+'/'+count
+        if _gaq?
+            _gaq.push ['_trackPageview', url]
         if not id?
             @blog_recent(count, page)
             return true
@@ -82,6 +104,16 @@ class Router extends Backbone.Router
     #     - count: the number of posts to display
     #     - page: the page to display
     blog_category: (id, count, page) =>
+        url = '/category'
+        if id?
+            url += '/'+id
+        else
+            url += '/undefined'
+        if count? and page?
+            url += '/'+page+'/'+count
+        if _gaq?
+            _gaq.push ['_trackPageview', url]
+
         if not id?
             @blog_recent(count, page)
             return true
@@ -106,6 +138,16 @@ class Router extends Backbone.Router
     #     - count: the number of posts to display
     #     - page: the page to display
     blog_date: (year, month, count, page) =>
+        url = '/date'
+        if year? and month?
+            url += '/'+year+'/'+month
+        else
+            url += '/undefined/undefined/'
+        if count? and page?
+            url += '/'+page+'/'+count
+        if _gaq?
+            _gaq.push ['_trackPageview', url]
+
         data =
             method: 'get_date_posts'
             year: year
@@ -124,6 +166,12 @@ class Router extends Backbone.Router
     # @params:
     #     - id: the id of the post
     blog_post: (id) =>
+        url = '/post'
+        if id?
+            url += '/'+id
+        if _gaq?
+            _gaq.push ['_trackPageview', url]
+
         if id?
             @view = new BlogFullPostView
                 id: id

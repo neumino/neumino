@@ -1,0 +1,86 @@
+html {
+  width: 100%;
+  min-width: 940px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  width: 100%;
+  min-width: 940px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: #1f2120;
+}
+.wrap {
+  display: table;
+  height: 100%;
+  /* IE6: treaded as min-height*/
+
+  min-height: 100%;
+  /* real browsers */
+
+  overflow: auto;
+}
+.wrap .nav {
+  display: table-cell;
+  width: 300px;
+  height: 100%;
+  background: #eff3f4;
+}
+.wrap .nav .circles_list {
+  list-style: none;
+  margin: 10px 25px 0px 25px;
+  padding: 10px 4px 3px 4px;
+  border-bottom: 2px dotted #000;
+  text-align: center;
+}
+.wrap .nav .circles_list .circle_link {
+  display: inline-block;
+  margin: 0px 3px;
+  padding: 0px;
+}
+.wrap .nav .nav_section {
+  margin: 20px 20px;
+  padding: 7px 0px 0px 35px;
+}
+.wrap .nav .nav_section h1 {
+  display: inline;
+  margin: 0px;
+  padding: 0px 15px 0px 5px;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-bottom: 2px dotted #000;
+}
+.wrap .nav .nav_section ul {
+  padding: 0px;
+  margin: 10px 0px 0px 0px;
+  list-style: square;
+}
+.wrap .nav .nav_section ul li {
+  margin: 0px;
+  padding: 0px;
+}
+.wrap .nav .nav_section ul li a {
+  color: #000;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+.wrap .nav .nav_section ul li a:hover {
+  text-decoration: underline;
+}
+.wrap .nav .recent_posts-section {
+  background: url(../images/doc_pink.png) left top no-repeat;
+}
+.wrap .nav .recent_comments-section {
+  background: url(../images/doc_purple.png) left top no-repeat;
+}
+.wrap .nav .archives-section {
+  background: url(../images/doc_blue.png) left top no-repeat;
+}
+.wrap .main {
+  display: table-cell;
+  min-width: 640px;
+  height: 100%;
+}

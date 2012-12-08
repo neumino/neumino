@@ -1,0 +1,90 @@
+@dark: #1f2120;
+@light: #eff3f4;
+
+html{
+    width: 100%;
+    min-width: 940px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    width: 100%;
+    min-width: 940px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: @dark;
+}
+
+.wrap{
+    display: table;
+    height:100%; /* IE6: treaded as min-height*/
+    min-height:100%; /* real browsers */
+    overflow: auto;
+
+    .nav{
+        display: table-cell;
+        width: 300px;
+        height: 100%;
+        background: @light;
+        .circles_list{
+            list-style: none;
+            margin: 10px 25px 0px 25px;
+            padding: 10px 4px 3px 4px;
+            border-bottom: 2px dotted #000;
+            text-align: center;
+            .circle_link{
+                display: inline-block;
+                margin: 0px 3px;
+                padding: 0px;
+            }
+        }
+        .nav_section{
+            margin: 20px 20px;
+            padding: 7px 0px 0px 35px;
+            h1{
+                display: inline;
+                margin: 0px;
+                padding: 0px 15px 0px 5px;
+                font-weight: bold;
+                font-size: 1.1em;
+                border-bottom: 2px dotted #000;
+            }
+            ul{
+                padding: 0px;
+                margin: 10px 0px 0px 0px;
+                list-style: square;
+                li{
+                    margin: 0px;
+                    padding: 0px;
+                    a{
+                        color: #000;
+                        font-size: 0.8em;
+                        text-decoration: none;
+                    }
+                    a:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .recent_posts-section{
+            background: url(../images/doc_pink.png) left top no-repeat;
+        }
+        .recent_comments-section{
+            background: url(../images/doc_purple.png) left top no-repeat;
+        }
+        .archives-section{
+            background: url(../images/doc_blue.png) left top no-repeat;
+        }
+
+    }
+
+    .main{
+        display: table-cell;
+        min-width: 640px;
+        height: 100%;
+    }
+}
